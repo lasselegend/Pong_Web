@@ -6,7 +6,7 @@ let score = 0;
 
 function setup() {
     createCanvas(800, 600);
-    ball = createVector(random(50, width - 50), 50);
+    resetBall();
     paddle = createVector(width / 2 - 50, height - 20);
     }
 
@@ -43,8 +43,7 @@ function draw() {
 
         // Ball falls below paddle (Game Over)
     if (ball.y > height) {
-        ball.x = width / 2;
-        ball.y = height / 2;
+        resetBall ();
         score = 0;
     }
 
@@ -57,4 +56,11 @@ function draw() {
     // Display Score
     textSize(20);
     text("Score: " + score, width - 120, 30);
+}
+
+// Reset abll at the top
+function resetBall() {
+    ball = createVector(random(50, width - 50), 50);
+    ballSpeedX = random([-5, 5]);
+    ballSpeedY = 5;
 }
