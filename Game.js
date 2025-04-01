@@ -6,7 +6,7 @@ let score = 0;
 
 function setup() {
     createCanvas(800, 600);
-    ball = createVector(width / 2, height / 2);
+    ball = createVector(random(50, width - 50), 50);
     paddle = createVector(width / 2 - 50, height - 20);
     }
 
