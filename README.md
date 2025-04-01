@@ -1,3 +1,3 @@
 Pong Game
 
-Converted from Python to Javascript and running with github pages
+Converted from Python to Javascript and running with Github pages
