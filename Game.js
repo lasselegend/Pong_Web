@@ -5,9 +5,9 @@ let ballSpeedY = 5;
 let score = 0;
 
 function setup() {
-    createCanvas(800, 600);
-    resetBall();
-    paddle = createVector(width / 2 - 50, height - 20);
+    createCanvas(windowWidth, windowHeight);
+    ball = createvector(width / 2, 50);
+    paddle = createVector(width / 2 - 50, height - 40);
     }
 
 function draw() {
@@ -58,9 +58,23 @@ function draw() {
     text("Score: " + score, width - 120, 30);
 }
 
-// Reset abll at the top
-function resetBall() {
-    ball = createVector(random(50, width - 50), 50);
-    ballSpeedX = random([-5, 5]);
-    ballSpeedY = 5;
+// Keyboard movement
+function keyPressed() {
+    if (keyCode === LEFT_ARROW) {
+        paddle.x -= 50;
+    } else if (keyCode === RIGHT_ARROW) {
+        paddle.x += 50;
+    }
+}
+
+// Touch controls
+function touchMoved () {
+    paddle.x = constrain(touches[0].x - 50, 0, width - 100);
+    return false;
+}
+
+// Adjust canvas if screen size changes
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+    paddle.y = height - 40;
 }
