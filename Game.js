@@ -6,7 +6,7 @@ let score = 0;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    ball = createvector(width / 2, 50);
+    ball = createVector(width / 2, 50);
     paddle = createVector(width / 2 - 50, height - 40);
     }
 
@@ -56,6 +56,14 @@ function draw() {
     // Display Score
     textSize(20);
     text("Score: " + score, width - 120, 30);
+}
+
+// Reset ball
+function resetBall() {
+    ball.x = random(50, width - 50);
+    ball.y = 50;
+    ballSpeedX = random([-5, 5]);
+    ballSpeedY = 5;
 }
 
 // Keyboard movement
